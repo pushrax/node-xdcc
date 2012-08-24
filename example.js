@@ -25,11 +25,11 @@ require('crypto').randomBytes(2, function(ex, buf) {
     console.log('Connected: ' + details.ip + ':' + details.port);
   });
 
-  client.on('xdcc-data', function(recieved) {
-    console.log((recieved / det.length * 100).toFixed(2) + "%");
+  client.on('xdcc-data', function(received) {
+    console.log((received / det.length * 100).toFixed(2) + "%");
   });
 
-  client.on('xdcc-end', function(recieved) {
+  client.on('xdcc-end', function(received) {
     console.log('Done.');
   });
 
