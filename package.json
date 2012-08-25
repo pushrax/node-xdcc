@@ -1,6 +1,12 @@
 {
     "name": "xdcc"
-  , "version": "0.0.1"
+  , "version": "0.1.0"
+  , "author": "Justin Li <jli@j-li.net>"
+  , "description": "A simple xdcc client"
+  , "homepage": "https://github.com/j1i/node-xdcc"
+  , "repository": "git://github.com/j1i/node-xdcc"
+
+  , "main": "lib/xdcc"
 
   , "dependencies": {
       "irc": "0.3.4"

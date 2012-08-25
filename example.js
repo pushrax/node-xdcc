@@ -2,7 +2,7 @@ var irc = require('./lib/xdcc').irc;
 
 
 require('crypto').randomBytes(2, function(ex, buf) {
-  var user = 'bad_connection' + buf.toString('hex');
+  var user = 'user' + buf.toString('hex');
   var hostUser = 'Doki|Nanoha';
   var pack = 750;
   var det;
