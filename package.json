@@ -1,10 +1,10 @@
 {
     "name": "xdcc"
-  , "version": "0.1.0"
+  , "version": "0.1.1"
   , "author": "Justin Li <jli@j-li.net>"
   , "description": "A simple xdcc client"
-  , "homepage": "https://github.com/j1i/node-xdcc"
-  , "repository": "git://github.com/j1i/node-xdcc"
+  , "homepage": "https://github.com/pushrax/node-xdcc"
+  , "repository": "git://github.com/pushrax/node-xdcc"
 
   , "main": "lib/xdcc"
 
