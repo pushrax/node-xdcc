@@ -1,6 +1,6 @@
 {
     "name": "xdcc"
-  , "version": "0.1.1"
+  , "version": "0.1.2"
   , "author": "Justin Li <jli@j-li.net>"
   , "description": "A simple xdcc client"
   , "homepage": "https://github.com/pushrax/node-xdcc"
