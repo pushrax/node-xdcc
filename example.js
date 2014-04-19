@@ -1,45 +1,51 @@
 var irc = require('./lib/xdcc').irc;
+var ProgressBar = require('progress');
 
+var user = 'desu' + Math.random().toString(36).substr(7, 3);
+var hostUser = 'Doki|Kotomi';
+var pack = 10;
+var meta, bar;
 
-require('crypto').randomBytes(2, function(ex, buf) {
-  var user = 'user' + buf.toString('hex');
-  var hostUser = 'Doki|Nanoha';
-  var pack = 750;
-  var det;
+console.log('Connecting...');
+var client = new irc.Client('irc.rizon.net', user, {
+  channels: [ '#doki' ],
+  userName: user,
+  realName: user
+});
 
-  var client = new irc.Client('irc.rizon.net', user, {
-    channels: [ '#doki' ],
-    userName: user,
-    realName: user
+client.on('join', function(channel, nick, message) {
+  if (nick !== user) return;
+  console.log('Joined', channel);
+  client.getXdcc(hostUser, 'xdcc send #' + pack, '.');
+});
+
+client.on('xdcc-connect', function(_meta) {
+  meta = _meta;
+
+  console.log('Connected: ' + meta.ip + ':' + meta.port);
+  bar = new ProgressBar('Downloading... [:bar] :percent, :etas remaining', {
+    incomplete: ' ',
+    total: meta.length,
+    width: 20
   });
+});
 
-  client.on('join', function(channel, nick, message) {
-    if (nick == user) {
-      console.log('joined ' + channel);
-      client.getXdcc(hostUser, 'xdcc send #' + pack, '/home/jli');
-    }
-  });
+var last = 0;
+client.on('xdcc-data', function(received) {
+  bar.tick(received - last);
+  last = received;
+});
 
-  client.on('xdcc-connect', function(details) {
-    det = details;
-    console.log('Connected: ' + details.ip + ':' + details.port);
-  });
+client.on('xdcc-end', function(received) {
+  console.log('Download completed');
+});
 
-  client.on('xdcc-data', function(received) {
-    console.log((received / det.length * 100).toFixed(2) + "%");
-  });
+client.on('notice', function(from, to, message) {
+  if (to == user && from == hostUser) {
+    console.log("NOTICE " + message);
+  }
+});
 
-  client.on('xdcc-end', function(received) {
-    console.log('Done.');
-  });
-
-  client.on('notice', function(from, to, message) {
-    if (to == user && from == hostUser) {
-      console.log("NOTICE " + message);
-    }
-  });
-
-  client.on('error', function(message) {
-    console.error(message);
-  });
+client.on('error', function(message) {
+  console.error(message);
 });
