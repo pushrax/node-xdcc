@@ -1,6 +1,8 @@
 node-xdcc
 =========
 
+[![npm version](http://img.shields.io/npm/v/xdcc.svg)](https://www.npmjs.org/package/xdcc)
+
 Monkey-patches `node-irc` to do xdcc file transfers.
 
 Usage
