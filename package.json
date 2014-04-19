@@ -1,14 +1,12 @@
 {
-    "name": "xdcc"
-  , "version": "0.1.2"
-  , "author": "Justin Li <jli@j-li.net>"
-  , "description": "A simple xdcc client"
-  , "homepage": "https://github.com/pushrax/node-xdcc"
-  , "repository": "git://github.com/pushrax/node-xdcc"
-
-  , "main": "lib/xdcc"
-
-  , "dependencies": {
-      "irc": "0.3.4"
+  "name": "xdcc",
+  "version": "0.1.2",
+  "author": "Justin Li <jli@j-li.net>",
+  "description": "A simple xdcc client",
+  "homepage": "https://github.com/pushrax/node-xdcc",
+  "repository": "git://github.com/pushrax/node-xdcc",
+  "main": "lib/xdcc",
+  "dependencies": {
+    "irc": "~0.3.6"
   }
 }
