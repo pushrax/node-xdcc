@@ -7,6 +7,6 @@
   "repository": "git://github.com/pushrax/node-xdcc",
   "main": "lib/xdcc",
   "dependencies": {
-    "irc": "~0.3.6"
+    "irc": ">=0.3.0"
   }
 }
