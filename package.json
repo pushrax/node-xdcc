@@ -2,6 +2,7 @@
   "name": "xdcc",
   "version": "0.2.3",
   "author": "Justin Li <jli@j-li.net>",
+  "contributors": ["ProgramComputer <22284856+ProgramComputer@users.noreply.github.com>"],
   "description": "A simple xdcc client",
   "homepage": "https://github.com/pushrax/node-xdcc",
   "repository": "git://github.com/pushrax/node-xdcc",
